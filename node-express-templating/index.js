@@ -17,13 +17,25 @@ app.set('view engine', 'hbs');
 // whenever response.render(...) is called
 app.set('views', __dirname + '/views');
 
+// app.locals is an object of properties that are
+// made available to every single template that is rendered
+app.locals.pageTitle = 'Random Page';
+
+// Use express.static middleware to make contents of public folder available publicly
+app.use(express.static('public'));
+
 app.get('/', (request, response) => {
   // Rendering the handlebars template with name "home"
-  response.render('home', { message: 'Ciao Mondo' });
+  response.render('home', {
+    message: 'Ciao Mondo',
+    pageTitle: 'Home'
+    // layout: 'alternative-layout'
+  });
 });
 
 app.get('/jose', (request, response) => {
   response.render('profile', {
+    // pageTitle: "José's Profile",
     name: 'José',
     nationality: 'Portuguese',
     location: {
