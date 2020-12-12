@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>{{ name }}'s Profile</h1>
+    <h3>Nationality: {{ nationality }}</h3>
+    <p>Is in {{ location.neighbourhood }}, {{ location.city }}, {{ location.country }}</p>
+    {{!-- {{#with location}}
+      <p>Is in {{ neighbourhood }}, {{ city }}, {{ country }}</p>
+    {{/with}} --}}
+    {{#each pets}}
+      {{>pet}}
+    {{/each}}
+    {{#each favoriteBeverages}}
+      <p>{{ @root.name }} likes {{ this }}</p>
+    {{/each}}
+  </body>
+</html>
