@@ -1,0 +1,16 @@
+<h1>Results</h1>
+<h3>You searched for "{{ searchQuery }}"</h3>
+
+<section class="search-results">
+  {{#each movies}}
+    <a class="single-result" href="/movie/{{imdbID}}">
+      <div class="single-result-poster">
+        <img src="{{Poster}}" alt="{{Title}}">
+      </div>
+      <div class="single-result-information">
+        <h5>{{Title}}</h5>
+        <small>{{Year}}</small>
+      </div>
+    </a>
+  {{/each}}
+</section>
