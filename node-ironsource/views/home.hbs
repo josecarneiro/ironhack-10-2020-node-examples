@@ -1,0 +1,15 @@
+<h1>IronSource</h1>
+
+<ul>
+  {{#each resources}}
+    <li>
+      <a href="/resource/{{_id}}">
+        {{#if image}}<img src="{{image}}" alt="{{title}}">{{/if}}
+        <strong>{{title}}</strong>
+      </a>
+      <form method="POST" action="/resource/{{_id}}/upvote">
+        <button>{{points}}</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>

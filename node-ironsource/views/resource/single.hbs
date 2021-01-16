@@ -1,0 +1,16 @@
+<h1>{{resource.title}}</h1>
+<h4>{{resource.category}}</h4>
+<small>
+{{#each resource.topics}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+</small>
+</br>
+<a href="{{resource.url}}" target="_blank">Go there -></a>
+</br>
+<small>Difficulty: {{resource.difficulty}}</small>
+{{#if resource.image}}
+  <img src="{{resource.image}}" alt="{{resource.title}}">
+{{/if}}
+</br>
+<a href="/resource/{{resource._id}}/delete">Delete Resource</a>
+</br>
+<a href="/resource/{{resource._id}}/update">Update Resource</a>

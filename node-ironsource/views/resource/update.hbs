@@ -1,0 +1,60 @@
+<h1>Update a Resource</h1>
+
+<form method="POST">
+  <label for="input-title">Title</label>
+  <input type="text" id="input-title" name="title" placeholder="Title" required value="{{resource.title}}"/>
+
+  <label for="input-url">URL</label>
+  <input type="url" id="input-url" name="url" placeholder="URL" required value="{{resource.url}}"/>
+
+  {{!-- <label for="input-category">Category</label>
+  <select name="category" id="input-category" required>
+    <option value="" selected disabled>Category</option> <!-- Display empty placeholder value-->
+    <option value="book">Book</option>
+    <option value="video">Video</option>
+    <option value="article">Article</option>
+    <option value="blog">Blog</option>
+    <option value="tweet">Tweet</option>
+    <option value="podcast">Podcast</option>
+    <option value="course">Course</option>
+  </select> --}}
+
+  {{!-- <div>
+    <div>
+      <input type="checkbox" id="input-checkbox-javascript" value="javascript" name="topic" />
+      <label for="input-checkbox-javascript">JavaScript</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-css" value="css" name="topic" />
+      <label for="input-checkbox-css">Css</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-html" value="html" name="topic" />
+      <label for="input-checkbox-html">Html</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-mongodb" value="mongodb" name="topic" />
+      <label for="input-checkbox-mongodb">Mongodb</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-canvas" value="canvas" name="topic" />
+      <label for="input-checkbox-canvas">Canvas</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-react" value="react" name="topic" />
+      <label for="input-checkbox-react">React</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-vue" value="vue" name="topic" />
+      <label for="input-checkbox-vue">Vue</label>
+    </div>
+  </div> --}}
+
+  <label for="input-difficulty">Difficulty</label>
+  <input type="range" min="1" max="5" step="1" id="input-difficulty" name="difficulty" required value="{{resource.difficulty}}">
+
+  <label for="input-image">Image</label>
+  <input type="url" id="input-image" name="image" placeholder="URL for Image" value="{{resource.image}}">
+
+  <button>Update Resource</button>
+</form>
