@@ -9,14 +9,31 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Make express parse request bodies
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   // Query the database for every advert
-  Advert.find().then(adverts => {
-    // Render home view and pass it adverts
-    res.render('home', { adverts: adverts });
-  });
+  Advert.find()
+    .sort({ creationDate: -1 })
+    .then(adverts => {
+      // Render home view and pass it adverts
+      res.render('home', { adverts: adverts });
+    })
+    .catch(error => {
+      res.render('error');
+    });
+});
+
+app.get('/advert/:id', (req, res) => {
+  const id = req.params.id;
+  Advert.findById(id)
+    .then(advert => {
+      res.render('single', { advert: advert });
+    })
+    .catch(error => {
+      res.render('error');
+    });
 });
 
 app.get('/create', (req, res) => {
@@ -33,10 +50,18 @@ app.post('/create', (req, res) => {
     title: data.title,
     description: data.description,
     location: data.location
-  }).then(() => {
-    // Redirect the user to the homepage...
-    res.redirect('/');
-  });
+  })
+    .then(() => {
+      // Redirect the user to the homepage...
+      res.redirect('/');
+    })
+    .catch(error => {
+      res.render('error');
+    });
+});
+
+app.get('*', (req, res) => {
+  res.render('error');
 });
 
 mongoose

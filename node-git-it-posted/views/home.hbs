@@ -1,7 +1,7 @@
 {{#each adverts}}
-  <div>
+  <a href="/advert/{{ _id }}">
     <h4>{{title}}</h4>
     <p>{{description}}</p>
-    <small>{{location}}</small>
-  </div>
+    <small>In {{location}} at {{creationDate}}</small>
+  </a>
 {{/each}}

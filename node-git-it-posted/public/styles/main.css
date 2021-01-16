@@ -1,0 +1,39 @@
+/* Making every element on the page be sized with the border-box box-sizing model. */
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea,
+button {
+  border: 1px solid grey;
+  font: inherit;
+  padding: 1em;
+  margin-bottom: 1em;
+}
