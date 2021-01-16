@@ -41,6 +41,15 @@ app.get('/create', (req, res) => {
 });
 
 app.post('/create', (req, res) => {
+  const data = req.body;
+  res.render('confirmation', {
+    title: data.title,
+    description: data.description,
+    location: data.location
+  });
+});
+
+app.post('/confirm', (req, res) => {
   // Get submission...
   const data = req.body;
   console.log(data);

@@ -1,0 +1,12 @@
+<h1>Are you sure these details are correct?</h1>
+<p>Title: {{title}}</p>
+<p>Location: {{location}}</p>
+<p>description: {{description}}</p>
+
+<form method="POST" action="/confirm">
+  <input type="hidden" id="input-title" name="title" placeholder="Advert Title" value="{{title}}"/>
+  <textarea hidden id="input-description" name="description" placeholder="A short description of the product...">{{description}}</textarea>
+  <input type="hidden" id="input-location" name="location" placeholder="City and Address" value="{{location}}"/>
+
+  <button>Confirm Submission</button>
+</form>
