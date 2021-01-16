@@ -37,7 +37,7 @@ const bookSchema = new mongoose.Schema({
 // The model is going to allow us to perform actions
 // dealing with the actual "books" collection in the database
 
-const BookModel = mongoose.model('Book', bookSchema); // Corresponds to the books collection
+const BookModel = mongoose.model('Tooth', bookSchema); // Corresponds to the books collection
 
 // Naming the model
 // Model Name / Collection Name
