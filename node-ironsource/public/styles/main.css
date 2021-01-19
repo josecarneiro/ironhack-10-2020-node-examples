@@ -1,0 +1,31 @@
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 0 1em 0;
+  line-height: inherit;
+}
+
+.resource {
+  color: #2dc5fa;
+}
+
+.resource h1 {
+  font-style: italic;
+}

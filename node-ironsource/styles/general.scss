@@ -1,0 +1,14 @@
+@import 'variables';
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $brand-font-family;
+  line-height: 1.5;
+}
