@@ -9,6 +9,51 @@ html {
 }
 
 body {
+  display: flex;
+  padding-top: 2em;
   font-family: $brand-font-family;
   line-height: 1.5;
+  max-width: 80em;
+  margin: 0 auto;
+  .navbar {
+    flex: 0 0 15em;
+  }
+  .page {
+    flex: 1;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='url'],
+textarea,
+button,
+select {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid hsl(0, 0, 85%);
+  border-radius: 0.25em;
+  background-color: transparent;
+  font: inherit;
+  line-height: inherit;
+  box-shadow: 0 0.125em 0.5em -0.25em hsl(0, 0, 70%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.25em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }

@@ -1,8 +1,63 @@
 @import 'variables';
 
-.resource {
-  color: $brand-color;
-  h1 {
-    font-style: italic;
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-item {
+  display: flex;
+  a {
+    flex: 1;
+    display: flex;
+    img {
+      margin-right: 1em;
+      width: 6em;
+      height: 6em;
+      border-radius: 50%;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+  }
+  form {
+  }
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  display: flex;
+}
+
+.topic-item {
+  margin-right: 0.25em;
+  padding: 0.25em 0.5em;
+  color: white;
+  background-color: hsl(45, 100%, 60%);
+  text-transform: uppercase;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+  font-weight: bold;
+  &:nth-child(1) {
+    background-color: hsl(45, 100%, 60%);
+  }
+  &:nth-child(2) {
+    background-color: hsl(244, 100%, 60%);
+  }
+  &:nth-child(3) {
+    background-color: hsl(148, 100%, 60%);
+  }
+  &:nth-child(4) {
+    background-color: hsl(0, 100%, 60%);
+  }
+  &:nth-child(5) {
+    background-color: hsl(45, 100%, 60%);
+  }
+  &:nth-child(6) {
+    background-color: hsl(0, 100%, 60%);
   }
 }

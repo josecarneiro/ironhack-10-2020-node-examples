@@ -40,15 +40,16 @@ app.get('/', (req, res) => {
 // Mount the router
 app.use('/resource', resourceRouter);
 
+app.all('*', (req, res, next) => {
+  const error = new Error('Page not found.');
+  error.status = 404;
+  next(error);
+});
+
 // Add a catch all error handler
 app.use((error, req, res, next) => {
   console.log('There was an error somewhere within the application.');
   console.log(error);
-  // if (error.status) {
-  //   res.status(error.status);
-  // } else {
-  //   res.status(500);
-  // }
   res.status(error.status || 500);
   res.render('error');
 });

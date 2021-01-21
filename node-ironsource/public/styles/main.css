@@ -7,8 +7,55 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  display: flex;
+  padding-top: 2em;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
+  max-width: 80em;
+  margin: 0 auto;
+}
+
+body .navbar {
+  flex: 0 0 15em;
+}
+
+body .page {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='url'],
+textarea,
+button,
+select {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.25em;
+  background-color: transparent;
+  font: inherit;
+  line-height: inherit;
+  box-shadow: 0 0.125em 0.5em -0.25em #b3b3b3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.25em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 h1,
@@ -22,10 +69,83 @@ p {
   line-height: inherit;
 }
 
-.resource {
-  color: #2dc5fa;
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.resource h1 {
-  font-style: italic;
+.resource-item {
+  display: flex;
+}
+
+.resource-item a {
+  flex: 1;
+  display: flex;
+}
+
+.resource-item a img {
+  margin-right: 1em;
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+}
+
+.resource-item a h4 {
+  font-size: 1.5em;
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  display: flex;
+}
+
+.topic-item {
+  margin-right: 0.25em;
+  padding: 0.25em 0.5em;
+  color: white;
+  background-color: #ffcc33;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+  font-weight: bold;
+}
+
+.topic-item:nth-child(1) {
+  background-color: #ffcc33;
+}
+
+.topic-item:nth-child(2) {
+  background-color: #4133ff;
+}
+
+.topic-item:nth-child(3) {
+  background-color: #33ff92;
+}
+
+.topic-item:nth-child(4) {
+  background-color: #ff3333;
+}
+
+.topic-item:nth-child(5) {
+  background-color: #ffcc33;
+}
+
+.topic-item:nth-child(6) {
+  background-color: #ff3333;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  color: #2e3538;
+  border-right: 1px solid #e3e7e8;
+  margin-right: 2em;
+}
+
+.navbar a {
+  padding: 1em 0;
 }

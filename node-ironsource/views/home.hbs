@@ -1,11 +1,21 @@
 <h1>IronSource</h1>
 
-<ul>
+<ul class="resource-list">
   {{#each resources}}
-    <li>
+    <li class="resource-item">
       <a href="/resource/{{_id}}">
         {{#if image}}<img src="{{image}}" alt="{{title}}">{{/if}}
-        <strong>{{title}}</strong>
+        <div>
+          <h4>{{title}}</h4>
+          <br>
+          <span class="category">{{category}}</span>
+          <br>
+          <ul class="topic-list">
+            {{#each topics}}
+              <li class="topic-item">{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
       </a>
       <form method="POST" action="/resource/{{_id}}/upvote">
         <button>{{points}}</button>
