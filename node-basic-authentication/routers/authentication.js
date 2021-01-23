@@ -38,6 +38,7 @@ router.post('/sign-up', (req, res, next) => {
       });
     })
     .then(user => {
+      req.session.userId = user._id;
       res.redirect('/profile');
     })
     .catch(error => {
@@ -51,10 +52,12 @@ router.get('/log-in', (req, res, next) => {
 
 router.post('/log-in', (req, res, next) => {
   const data = req.body;
+  let user;
   User.findOne({
     email: data.email
   })
-    .then(user => {
+    .then(doc => {
+      user = doc;
       if (user) {
         return bcryptjs.compare(data.password, user.passwordHashAndSalt);
       } else {
@@ -63,6 +66,7 @@ router.post('/log-in', (req, res, next) => {
     })
     .then(result => {
       if (result) {
+        req.session.userId = user._id;
         res.redirect('/profile');
       } else {
         throw new Error("The password doesn't match.");
@@ -71,6 +75,13 @@ router.post('/log-in', (req, res, next) => {
     .catch(error => {
       next(error);
     });
+});
+
+router.post('/log-out', (req, res, next) => {
+  // req.session.userId = undefined;
+  // delete req.session.userId;
+  req.session.destroy();
+  res.redirect('/');
 });
 
 module.exports = router;

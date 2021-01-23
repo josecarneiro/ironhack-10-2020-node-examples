@@ -35,18 +35,33 @@
         margin-bottom: 1em;
       }
 
-      nav a {
+      nav a,
+      nav button {
         padding: 1em 0;
         margin-right: 1em;
+      }
+
+      nav a:first-child {
+        margin-right: auto;
+      }
+
+      nav button {
+        border: 0;
       }
     </style>
   </head>
   <body>
     <nav>
       <a href="/">Home</a>
-      <a href="/profile">Profile</a>
-      <a href="/authentication/sign-up">Create an Account</a>
-      <a href="/authentication/log-in">Log In</a>
+      {{#if user}}
+        <a href="/profile">{{user.name}}'s Profile</a>
+        <form method="POST" action="/authentication/log-out">
+          <button>Log Out</button>
+        </form>
+        {{else}}
+        <a href="/authentication/sign-up">Create an Account</a>
+        <a href="/authentication/log-in">Log In</a>
+      {{/if}}
     </nav>
     {{{body}}}
   </body>
