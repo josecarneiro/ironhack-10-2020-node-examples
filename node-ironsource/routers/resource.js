@@ -1,13 +1,14 @@
 const express = require('express');
 const Resource = require('./../models/resource');
+const routeGuardMiddleware = require('./../middleware/route-guard');
 
 const router = new express.Router();
 
-router.get('/create', (req, res, next) => {
+router.get('/create', routeGuardMiddleware, (req, res, next) => {
   res.render('resource/create');
 });
 
-router.post('/create', (req, res, next) => {
+router.post('/create', routeGuardMiddleware, (req, res, next) => {
   const data = req.body;
 
   let topics;
@@ -28,7 +29,9 @@ router.post('/create', (req, res, next) => {
     // ...{ topics: typeof data.topic === 'string' ? [data.topic] : data.topic },
     topics: topics,
     difficulty: data.difficulty,
-    image: data.image || undefined
+    image: data.image || undefined,
+    creator: req.user._id
+    // creator: req.session.userId
   })
     .then(resource => {
       res.redirect(`/resource/${resource._id}`);
@@ -58,7 +61,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.get('/:id/update', (req, res, next) => {
+router.get('/:id/update', routeGuardMiddleware, (req, res, next) => {
   const id = req.params.id;
   Resource.findById(id)
     .then(resource => {
@@ -69,7 +72,7 @@ router.get('/:id/update', (req, res, next) => {
     });
 });
 
-router.post('/:id/update', (req, res, next) => {
+router.post('/:id/update', routeGuardMiddleware, (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
   Resource.findByIdAndUpdate(id, {
@@ -86,7 +89,7 @@ router.post('/:id/update', (req, res, next) => {
     });
 });
 
-router.get('/:id/delete', (req, res, next) => {
+router.get('/:id/delete', routeGuardMiddleware, (req, res, next) => {
   const id = req.params.id;
   Resource.findById(id)
     .then(resource => {
@@ -97,7 +100,7 @@ router.get('/:id/delete', (req, res, next) => {
     });
 });
 
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', routeGuardMiddleware, (req, res, next) => {
   const id = req.params.id;
   Resource.findByIdAndDelete(id)
     .then(() => {
@@ -108,19 +111,15 @@ router.post('/:id/delete', (req, res, next) => {
     });
 });
 
-router.post('/:id/upvote', (req, res, next) => {
+router.post('/:id/upvote', routeGuardMiddleware, (req, res, next) => {
   const id = req.params.id;
-  // Resource.findById(id)
-  //   .then(resource => {
-  //     return Resource.findByIdAndUpdate(id, { points: resource.points + 1 });
-  //   })
   Resource.findByIdAndUpdate(id, {
     $inc: {
       points: 1
     }
   })
     .then(() => {
-      res.redirect('/');
+      res.redirect(`/#resource-${id}`);
     })
     .catch(error => {
       next(error);

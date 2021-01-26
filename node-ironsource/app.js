@@ -3,11 +3,17 @@ const path = require('path');
 const nodeSassMiddleware = require('node-sass-middleware');
 const morgan = require('morgan');
 const serveFavicon = require('serve-favicon');
+const expressSession = require('express-session');
+const connectMongo = require('connect-mongo');
+const MongoStore = connectMongo(expressSession);
+const mongoose = require('mongoose');
 
+const baseRouter = require('./routers/base');
 const resourceRouter = require('./routers/resource');
-const Resource = require('./models/resource');
+const authenticationRouter = require('./routers/authentication');
 
 const app = express();
+const userDeserializationMiddleware = require('./middleware/deserialize-user');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -26,18 +32,27 @@ app.use(
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-
-app.get('/', (req, res) => {
-  Resource.find()
-    .then(resources => {
-      res.render('home', { resources });
+app.use(
+  expressSession({
+    secret: process.env.SESSION_SECRET,
+    // Cookie related options
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 15 * 24 * 60 * 60 * 1000 // 15 days
+    },
+    // Database related options
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 60 * 60
     })
-    .catch(error => {
-      next(error);
-    });
-});
+  })
+);
+app.use(userDeserializationMiddleware);
 
 // Mount the router
+app.use('/', baseRouter);
+app.use('/authentication', authenticationRouter);
 app.use('/resource', resourceRouter);
 
 app.all('*', (req, res, next) => {

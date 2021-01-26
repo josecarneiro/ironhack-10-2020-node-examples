@@ -35,10 +35,11 @@ const resourceSchema = new mongoose.Schema(
       type: Number,
       required: true,
       default: 0
+    },
+    creator: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User'
     }
-    // creator: {
-    //   type: /* ... */
-    // },
   },
   {
     timestamps: {

@@ -30,6 +30,8 @@ a {
 
 input[type='text'],
 input[type='number'],
+input[type='email'],
+input[type='password'],
 input[type='url'],
 textarea,
 button,
@@ -47,6 +49,15 @@ select {
 form {
   display: flex;
   flex-direction: column;
+}
+
+input,
+button {
+  padding: 1em;
+  border: 1px solid grey;
+  font: inherit;
+  margin-bottom: 1em;
+  background-color: transparent;
 }
 
 label {
@@ -77,40 +88,76 @@ p {
 
 .resource-item {
   display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .resource-item a {
   flex: 1;
   display: flex;
-}
-
-.resource-item a img {
-  margin-right: 1em;
-  width: 6em;
-  height: 6em;
-  border-radius: 50%;
+  padding: 1em 0;
 }
 
 .resource-item a h4 {
   font-size: 1.5em;
 }
 
+.resource-item img {
+  margin-right: 2em;
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+}
+
+.resource-item button {
+  height: 100%;
+  width: 6rem;
+  padding: 0;
+  border: 0;
+  box-shadow: 0 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.resource-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resource-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.resource-info h4 {
+  margin: 0;
+}
+
+.resource-info span {
+  margin-left: 1em;
+  text-transform: uppercase;
+  color: grey;
+  font-weight: 700;
+}
+
 .topic-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 1em;
   display: flex;
 }
 
 .topic-item {
-  margin-right: 0.25em;
+  margin-right: 0.5em;
   padding: 0.25em 0.5em;
   color: white;
   background-color: #ffcc33;
   text-transform: uppercase;
   border-radius: 0.25em;
-  font-size: 0.875em;
+  font-size: 0.75em;
   font-weight: bold;
 }
 
@@ -127,7 +174,7 @@ p {
 }
 
 .topic-item:nth-child(4) {
-  background-color: #ff3333;
+  background-color: #ff335f;
 }
 
 .topic-item:nth-child(5) {

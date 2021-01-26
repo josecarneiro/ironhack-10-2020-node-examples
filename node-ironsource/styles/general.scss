@@ -30,6 +30,8 @@ a {
 
 input[type='text'],
 input[type='number'],
+input[type='email'],
+input[type='password'],
 input[type='url'],
 textarea,
 button,
@@ -47,6 +49,15 @@ select {
 form {
   display: flex;
   flex-direction: column;
+}
+
+input,
+button {
+  padding: 1em;
+  border: 1px solid grey;
+  font: inherit;
+  margin-bottom: 1em;
+  background-color: transparent;
 }
 
 label {

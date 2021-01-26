@@ -2,14 +2,14 @@
 
 <ul class="resource-list">
   {{#each resources}}
-    <li class="resource-item">
+    <li id="resource-{{_id}}" class="resource-item">
       <a href="/resource/{{_id}}">
         {{#if image}}<img src="{{image}}" alt="{{title}}">{{/if}}
-        <div>
-          <h4>{{title}}</h4>
-          <br>
-          <span class="category">{{category}}</span>
-          <br>
+        <div class="resource-contents">
+          <div class="resource-info">
+            <h4>{{title}}</h4>
+            <span class="category">{{category}}</span>
+          </div>
           <ul class="topic-list">
             {{#each topics}}
               <li class="topic-item">{{this}}</li>
