@@ -1,6 +1,7 @@
 const express = require('express');
 const Resource = require('./../models/resource');
 const routeGuardMiddleware = require('./../middleware/route-guard');
+const uploadMiddleware = require('./../middleware/file-upload');
 
 const router = new express.Router();
 
@@ -8,38 +9,48 @@ router.get('/create', routeGuardMiddleware, (req, res, next) => {
   res.render('resource/create');
 });
 
-router.post('/create', routeGuardMiddleware, (req, res, next) => {
-  const data = req.body;
+router.post(
+  '/create',
+  routeGuardMiddleware,
+  uploadMiddleware.single('image'),
+  (req, res, next) => {
+    const data = req.body;
 
-  let topics;
+    let topics;
 
-  if (typeof data.topic === 'string') {
-    topics = [data.topic];
-  } else if (data.topic instanceof Array) {
-    topics = data.topic;
-  } else {
-    topics = [];
-  }
+    if (typeof data.topic === 'string') {
+      topics = [data.topic];
+    } else if (data.topic instanceof Array) {
+      topics = data.topic;
+    } else {
+      topics = [];
+    }
 
-  Resource.create({
-    title: data.title,
-    url: data.url,
-    category: data.category,
-    // topics: typeof data.topic === 'string' ? [ data.topic ] : Array.isArray(data.topic) ? data.topic : [],
-    // ...{ topics: typeof data.topic === 'string' ? [data.topic] : data.topic },
-    topics: topics,
-    difficulty: data.difficulty,
-    image: data.image || undefined,
-    creator: req.user._id
-    // creator: req.session.userId
-  })
-    .then(resource => {
-      res.redirect(`/resource/${resource._id}`);
+    let image;
+    if (req.file) {
+      image = req.file.path;
+    }
+
+    Resource.create({
+      title: data.title,
+      url: data.url,
+      category: data.category,
+      // topics: typeof data.topic === 'string' ? [ data.topic ] : Array.isArray(data.topic) ? data.topic : [],
+      // ...{ topics: typeof data.topic === 'string' ? [data.topic] : data.topic },
+      topics: topics,
+      difficulty: data.difficulty,
+      image: image,
+      creator: req.user._id
+      // creator: req.session.userId
     })
-    .catch(error => {
-      next(error);
-    });
-});
+      .then(resource => {
+        res.redirect(`/resource/${resource._id}`);
+      })
+      .catch(error => {
+        next(error);
+      });
+  }
+);
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;

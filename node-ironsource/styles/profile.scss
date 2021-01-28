@@ -1,0 +1,8 @@
+$profile-picture-size: 6em;
+
+.profile-picture {
+  width: $profile-picture-size;
+  height: $profile-picture-size;
+  border-radius: 50%;
+  object-fit: cover;
+}

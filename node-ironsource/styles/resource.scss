@@ -24,6 +24,7 @@
     width: 6em;
     height: 6em;
     border-radius: 50%;
+    object-fit: cover;
   }
   button {
     height: 100%;
@@ -74,22 +75,26 @@
   border-radius: 0.25em;
   font-size: 0.75em;
   font-weight: bold;
-  &:nth-child(1) {
-    background-color: hsl(45, 100%, 60%);
-  }
-  &:nth-child(2) {
-    background-color: hsl(244, 100%, 60%);
-  }
-  &:nth-child(3) {
-    background-color: hsl(148, 100%, 60%);
-  }
-  &:nth-child(4) {
-    background-color: hsl(347, 100%, 60%);
-  }
-  &:nth-child(5) {
-    background-color: hsl(45, 100%, 60%);
-  }
-  &:nth-child(6) {
-    background-color: hsl(0, 100%, 60%);
-  }
+}
+
+.topic-item-javascript {
+  background-color: hsl(45, 100%, 60%);
+}
+.topic-item-css {
+  background-color: hsl(350, 100%, 60%);
+}
+.topic-item-html {
+  background-color: hsl(34, 100%, 60%);
+}
+.topic-item-mongodb {
+  background-color: hsl(125, 100%, 26%);
+}
+.topic-item-canvas {
+  background-color: hsl(281, 100%, 60%);
+}
+.topic-item-react {
+  background-color: hsl(241, 96%, 56%);
+}
+.topic-item-vue {
+  background-color: hsl(123, 100%, 69%);
 }

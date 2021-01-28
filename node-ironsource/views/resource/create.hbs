@@ -1,6 +1,6 @@
 <h1>Add a resource</h1>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <label for="input-title">Title</label>
   <input type="text" id="input-title" name="title" placeholder="Title" required/>
 
@@ -54,7 +54,8 @@
   <input type="range" min="1" max="5" step="1" id="input-difficulty" name="difficulty" value="3" required>
 
   <label for="input-image">Image</label>
-  <input type="url" id="input-image" name="image" placeholder="URL for Image">
+  <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+  {{!-- <input type="url" id="input-image" name="image" placeholder="URL for Image"> --}}
 
   <button>Submit</button>
 </form>

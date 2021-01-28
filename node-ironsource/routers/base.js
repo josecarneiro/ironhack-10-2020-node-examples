@@ -5,7 +5,9 @@ const router = new express.Router();
 
 router.get('/', (req, res) => {
   Resource.find()
+    .populate('creator')
     .then(resources => {
+      console.log(resources);
       res.render('home', { resources });
     })
     .catch(error => {

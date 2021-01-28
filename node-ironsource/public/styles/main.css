@@ -107,6 +107,7 @@ p {
   width: 6em;
   height: 6em;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .resource-item button {
@@ -161,28 +162,32 @@ p {
   font-weight: bold;
 }
 
-.topic-item:nth-child(1) {
+.topic-item-javascript {
   background-color: #ffcc33;
 }
 
-.topic-item:nth-child(2) {
-  background-color: #4133ff;
+.topic-item-css {
+  background-color: #ff3355;
 }
 
-.topic-item:nth-child(3) {
-  background-color: #33ff92;
+.topic-item-html {
+  background-color: #ffa733;
 }
 
-.topic-item:nth-child(4) {
-  background-color: #ff335f;
+.topic-item-mongodb {
+  background-color: #00850b;
 }
 
-.topic-item:nth-child(5) {
-  background-color: #ffcc33;
+.topic-item-canvas {
+  background-color: #be33ff;
 }
 
-.topic-item:nth-child(6) {
-  background-color: #ff3333;
+.topic-item-react {
+  background-color: #2723fb;
+}
+
+.topic-item-vue {
+  background-color: #61ff69;
 }
 
 .navbar {
@@ -195,4 +200,11 @@ p {
 
 .navbar a {
   padding: 1em 0;
+}
+
+.profile-picture {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  object-fit: cover;
 }

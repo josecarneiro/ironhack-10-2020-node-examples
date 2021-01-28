@@ -1,0 +1,11 @@
+<h1>IronTransfer</h1>
+
+<form action="/upload-file" method="POST" enctype="multipart/form-data">
+  <label for="input-file">Select a file</label>
+  <input id="input-file" type="file" name="content" accept="image/png, image/jpeg"/>
+
+  <label for="input-receiver">Who do you want to send this file to?</label>
+  <input id="input-receiver" type="email" placeholder="Receiver's Email" name="receiver" />
+
+  <button>Confirm Upload</button>
+</form>

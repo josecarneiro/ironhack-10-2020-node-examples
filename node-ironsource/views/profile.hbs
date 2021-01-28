@@ -1,3 +1,5 @@
+{{#if user.picture}}
+  <img src="{{user.picture}}" alt="{{user.name}}" class="profile-picture" />
+{{/if}}
 <h1>Hello {{user.name}}</h1>
-
 <p>Your email is <strong>{{user.email}}</strong>.</p>

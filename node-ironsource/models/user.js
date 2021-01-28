@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema({
   // },
   passwordHashAndSalt: {
     type: String
+  },
+  picture: {
+    type: String
   }
 });
 
