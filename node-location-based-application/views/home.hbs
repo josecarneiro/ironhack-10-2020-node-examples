@@ -1,0 +1,35 @@
+<button id="locate-me">Locate Me</button>
+
+<form method="GET" action="/restaurant/search">
+  <label for="input-latitude">Latitude</label>
+  <input id="input-latitude" type="number" name="latitude" required min="-90" max="90" step="any" placeholder="Latitude" />
+
+  <label for="input-longitude">Longitude</label>
+  <input id="input-longitude" type="number" name="longitude" required min="-180" max="180" step="any" placeholder="Longitude" />
+  
+  <label for="input-longitude">Distance</label>
+  <input id="input-distance" type="range" name="distance" min="0" max="100000" step="1000"/>
+
+  <button>Find Restaurants</button>
+</form>
+
+<script>
+  const locateMeTrigger = document.getElementById('locate-me');
+  const latitudeInput = document.getElementById('input-latitude');
+  const longitudeInput = document.getElementById('input-longitude');
+
+  const getUserLocation = (options) => new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, options));
+
+  locateMeTrigger.addEventListener('click', () => {
+    getUserLocation()
+      .then(location => {
+        const { latitude, longitude } = location.coords;
+        latitudeInput.value = latitude;
+        longitudeInput.value = longitude;
+      })
+      .catch(error => {
+        console.log('There was an error locating the user.');
+        console.log(error);
+      });
+  });
+</script>

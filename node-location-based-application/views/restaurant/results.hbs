@@ -1,0 +1,33 @@
+<div id="map"></div>
+
+<script>
+  function createMap () {
+    const mapElement = document.getElementById('map');
+
+    const map = new google.maps.Map(mapElement, {
+      center: {
+        lat: 38,
+        lng: -9
+      },
+      zoom: 8
+    });
+
+    const restaurants = {{{ json restaurants }}};
+
+    for (let restaurant of restaurants) {
+      const marker = new google.maps.Marker({
+        position: {
+          lat: restaurant.location.coordinates[1],
+          lng: restaurant.location.coordinates[0]
+        },
+        map: map
+      })
+
+      marker.addListener('click', () => {
+        window.location = `/restaurant/${restaurant._id}`;
+      });
+    }
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0DqXPpPxcJTpR7EvVNsWAUVTKLQZclUw&callback=createMap" defer></script>
