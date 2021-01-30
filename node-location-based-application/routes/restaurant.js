@@ -30,11 +30,6 @@ const PERIMETER_OF_EARTH_IN_DEGREES = 360;
 const metersToDegrees = (meters) =>
   (meters * PERIMETER_OF_EARTH_IN_DEGREES) / PERIMETER_OF_EARTH_IN_METERS;
 
-a - b;
-c - x;
-
-x = (c * b) / a;
-
 router.get('/search', (req, res, next) => {
   const { latitude, longitude, distance } = req.query;
   const radius = metersToDegrees(distance);
