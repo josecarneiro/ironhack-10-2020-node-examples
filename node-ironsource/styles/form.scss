@@ -1,0 +1,31 @@
+@import 'variables';
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+input[type='file'],
+textarea,
+button,
+select {
+  padding: 1em;
+  margin: 0;
+  margin-bottom: 1em;
+  border: 1px solid lighten($grey, 65%);
+  border-radius: 0.25em;
+  box-shadow: 0 0.125em 0.5em -0.25em lighten($grey, 50%);
+  background-color: transparent;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+label {
+  margin-bottom: 0.25em;
+}

@@ -9,8 +9,7 @@
 .resource-item {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid hsl(0, 0%, 90%);
-  // margin-bottom: 1em;
+  border-bottom: 1px solid lighten($grey, 72%);
   a {
     flex: 1;
     display: flex;
@@ -78,23 +77,23 @@
 }
 
 .topic-item-javascript {
-  background-color: hsl(45, 100%, 60%);
+  background-color: hsl(45, 100%, 55%);
 }
 .topic-item-css {
   background-color: hsl(350, 100%, 60%);
 }
 .topic-item-html {
-  background-color: hsl(34, 100%, 60%);
+  background-color: hsl(34, 100%, 55%);
 }
 .topic-item-mongodb {
-  background-color: hsl(125, 100%, 26%);
+  background-color: hsl(125, 80%, 35%);
 }
 .topic-item-canvas {
   background-color: hsl(281, 100%, 60%);
 }
 .topic-item-react {
-  background-color: hsl(241, 96%, 56%);
+  background-color: hsl(220, 75%, 50%);
 }
 .topic-item-vue {
-  background-color: hsl(123, 100%, 69%);
+  background-color: hsl(123, 85%, 65%);
 }

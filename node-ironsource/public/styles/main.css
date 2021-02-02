@@ -28,42 +28,6 @@ a {
   text-decoration: none;
 }
 
-input[type='text'],
-input[type='number'],
-input[type='email'],
-input[type='password'],
-input[type='url'],
-textarea,
-button,
-select {
-  padding: 1em;
-  margin-bottom: 1em;
-  border: 1px solid #d9d9d9;
-  border-radius: 0.25em;
-  background-color: transparent;
-  font: inherit;
-  line-height: inherit;
-  box-shadow: 0 0.125em 0.5em -0.25em #b3b3b3;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-button {
-  padding: 1em;
-  border: 1px solid grey;
-  font: inherit;
-  margin-bottom: 1em;
-  background-color: transparent;
-}
-
-label {
-  margin-bottom: 0.25em;
-}
-
 img {
   max-width: 100%;
   display: block;
@@ -89,7 +53,7 @@ p {
 .resource-item {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e9ebed;
 }
 
 .resource-item a {
@@ -163,7 +127,7 @@ p {
 }
 
 .topic-item-javascript {
-  background-color: #ffcc33;
+  background-color: #ffc61a;
 }
 
 .topic-item-css {
@@ -171,11 +135,11 @@ p {
 }
 
 .topic-item-html {
-  background-color: #ffa733;
+  background-color: #ff9c1a;
 }
 
 .topic-item-mongodb {
-  background-color: #00850b;
+  background-color: #12a11e;
 }
 
 .topic-item-canvas {
@@ -183,23 +147,37 @@ p {
 }
 
 .topic-item-react {
-  background-color: #2723fb;
+  background-color: #2060df;
 }
 
 .topic-item-vue {
-  background-color: #61ff69;
+  background-color: #5af261;
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
   color: #2e3538;
-  border-right: 1px solid #e3e7e8;
+  border-right: 1px solid #e9ebed;
   margin-right: 2em;
 }
 
-.navbar a {
-  padding: 1em 0;
+.navbar a,
+.navbar button {
+  padding: 1em 0.75em;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+  background-color: #f4f5f6;
+}
+
+.navbar button {
+  border: 0;
+  text-align: left;
+  box-shadow: 0 0;
 }
 
 .profile-picture {
@@ -207,4 +185,34 @@ p {
   height: 6em;
   border-radius: 50%;
   object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+input[type='file'],
+textarea,
+button,
+select {
+  padding: 1em;
+  margin: 0;
+  margin-bottom: 1em;
+  border: 1px solid #d5dadd;
+  border-radius: 0.25em;
+  box-shadow: 0 0.125em 0.5em -0.25em #abb6ba;
+  background-color: transparent;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+label {
+  margin-bottom: 0.25em;
 }

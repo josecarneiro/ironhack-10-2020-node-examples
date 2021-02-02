@@ -28,42 +28,6 @@ a {
   text-decoration: none;
 }
 
-input[type='text'],
-input[type='number'],
-input[type='email'],
-input[type='password'],
-input[type='url'],
-textarea,
-button,
-select {
-  padding: 1em;
-  margin-bottom: 1em;
-  border: 1px solid hsl(0, 0, 85%);
-  border-radius: 0.25em;
-  background-color: transparent;
-  font: inherit;
-  line-height: inherit;
-  box-shadow: 0 0.125em 0.5em -0.25em hsl(0, 0, 70%);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-button {
-  padding: 1em;
-  border: 1px solid grey;
-  font: inherit;
-  margin-bottom: 1em;
-  background-color: transparent;
-}
-
-label {
-  margin-bottom: 0.25em;
-}
-
 img {
   max-width: 100%;
   display: block;
