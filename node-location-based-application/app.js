@@ -13,9 +13,13 @@ const restaurantRouter = require('./routes/restaurant');
 const hbs = require('hbs');
 const hbsJson = require('hbs-json');
 
+hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('json', hbsJson);
 
 const app = express();
+
+app.locals.googleMapsKey = process.env.GOOGLE_MAPS_KEY;
+// app.locals.env = process.env;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
